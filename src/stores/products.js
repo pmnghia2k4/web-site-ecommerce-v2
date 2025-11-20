@@ -13,7 +13,8 @@ export const useProductsStore = defineStore('products', {
 			try {
 				// Mocked endpoint shape; replace when backend is ready
 				const { data } = await api.get('/products', { params });
-				this.items = data.items ?? data ?? [];
+				// Handle both { items: [] } and { products: [] } formats
+				this.items = data.items ?? data.products ?? data ?? [];
 				this.total = data.total ?? this.items.length;
 			} finally {
 				this.loading = false;
