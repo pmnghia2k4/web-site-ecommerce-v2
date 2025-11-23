@@ -91,6 +91,7 @@ async function loadPage() {
 		name: p.title ?? p.name,
 		price: p.price,
 		brand: p.brand ?? 'Brand',
+		images: p.images ?? (p.thumbnail ? [p.thumbnail] : []),
 		image: p.thumbnail ?? (p.images?.[0] || 'https://picsum.photos/400')
 	}));
 	// Scroll to top after loading a new page so user sees the top of product list

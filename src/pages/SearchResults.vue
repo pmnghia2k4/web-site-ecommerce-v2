@@ -85,6 +85,7 @@ async function loadSearch() {
 			name: p.title,
 			price: p.price,
 			brand: p.brand ?? 'Brand',
+			images: p.images ?? (p.thumbnail ? [p.thumbnail] : []),
 			image: p.thumbnail ?? (p.images?.[0] || 'https://picsum.photos/400')
 		}));
 		// Scroll to top after loading search results page
